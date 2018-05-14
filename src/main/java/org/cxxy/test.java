@@ -1,9 +1,12 @@
 package org.cxxy;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import java.text.DecimalFormat;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.text.NumberFormat;
+import java.util.*;
 
 /**
  * Created by LiuHui on 2017/4/14.
@@ -24,11 +27,14 @@ public class test {
 //        Stream.of("one","two","three","four").filter(e-> e.length() > 3).peek(e -> System.out.println("filtered value:" + e))
 //                .map(String::toUpperCase).peek(e -> System.out.println("maped value:" + e)).collect(Collectors.toList());
 
-        Double a = Double.valueOf(50) / Double.valueOf(2);
+//        Double a = Double.valueOf(50) / Double.valueOf(2);
+//
+//        DecimalFormat df = new DecimalFormat("#.##");
+//
+//        System.out.println(df.format(a));
 
-        DecimalFormat df = new DecimalFormat("#.##");
 
-        System.out.println(df.format(a));
-
+        String pwd = RandomStringUtils.randomNumeric(6);
+        System.out.println(pwd);
     }
 }
