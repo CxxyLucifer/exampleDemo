@@ -6,11 +6,12 @@ import java.util.concurrent.DelayQueue;
 /**
  * 业务场景二：具有过期时间的缓存
  * 
- * 该场景来自于http://www.cnblogs.com/jobs/archive/2007/04/27/730255.html，向缓存添加内容时，给每一个key设定过期时间，系统自动将超过过期时间的key清除。
+ * 向缓存添加内容时，给每一个key设定过期时间，系统自动将超过过期时间的key清除。
  * 
  * 这个场景中几个点需要注意：
  * 
- * 当向缓存中添加key-value对时，如果这个key在缓存中存在并且还没有过期，需要用这个key对应的新过期时间 为了能够让DelayQueue将其已保存的key删除， 需要重写实现Delayed接口添加到DelayQueue的DelayedItem的hashCode函数和equals函数 当缓存关闭，监控程序也应关闭，因而监控线程应当用守护线程
+ * 当向缓存中添加key-value对时，如果这个key在缓存中存在并且还没有过期，需要用这个key对应的新过期时间 为了能够让DelayQueue将其已保存的key删除，
+ * 需要重写实现Delayed接口添加到DelayQueue的DelayedItem的hashCode函数和equals函数 当缓存关闭，监控程序也应关闭，因而监控线程应当用守护线程
  * 
  * @param <K>
  * @param <V>

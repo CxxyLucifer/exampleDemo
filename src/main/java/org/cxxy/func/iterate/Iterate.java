@@ -14,6 +14,6 @@ public class Iterate {
      * @param args
      */
     public static void main(String[] args) {
-        Stream.iterate(2, n -> n = n * 2).limit(10).forEach(m -> System.out.println(m));
+        Stream.iterate(1, n -> n = n * 3).limit(10).forEach(m -> System.out.println(m));
     }
 }
