@@ -15,11 +15,6 @@ public class PalindromeStream {
         return new StringBuffer(name).reverse().toString().equalsIgnoreCase(name);
     }
 
-
-
-
-
-
     public static Stream<String> getLines(String fileName) {
         try {
             return Files.lines(Paths.get(ClassLoader.getSystemResource(fileName).toURI()), StandardCharsets.UTF_8);
@@ -28,5 +23,10 @@ public class PalindromeStream {
             e.printStackTrace();
         }
         return Stream.empty();
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome("abccba"));
     }
 }
