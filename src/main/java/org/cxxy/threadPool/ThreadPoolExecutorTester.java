@@ -1,7 +1,6 @@
 package org.cxxy.threadPool;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -42,7 +41,6 @@ public class ThreadPoolExecutorTester {
                 e.printStackTrace();
             }
         }
-
 
         for(HashMap<String, Object> futureMap : result) {
             Iterator entries = futureMap.entrySet().iterator();
