@@ -12,14 +12,15 @@ public class ThreadPoolExecutorTester {
 
     final static String THREAD_NAME = "threadPoolExecutorTester";
 
+    static ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 30, TimeUnit.MINUTES,
+            new LinkedBlockingDeque<Runnable>(),
+            new ThreadFactoryBuilder().setNameFormat(THREAD_NAME).build(),
+            new ThreadPoolExecutor.CallerRunsPolicy());
+
+
     public static void main(String[] args) {
 
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 30, TimeUnit.MINUTES,
-                new LinkedBlockingDeque<Runnable>(),
-                new ThreadFactoryBuilder().setNameFormat(THREAD_NAME).build(),
-                new ThreadPoolExecutor.CallerRunsPolicy());
         long time1 = System.currentTimeMillis();
-
 
         List<Future<HashMap<String, Object>>> futureList = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
@@ -35,22 +36,20 @@ public class ThreadPoolExecutorTester {
         List<HashMap<String, Object>> result = new ArrayList<>();
         for(Future future:futureList){
             try {
-                HashMap<String, Object> map = (HashMap<String, Object>)future.get(6,TimeUnit.SECONDS);
+                HashMap<String, Object> map = (HashMap<String, Object>)future.get();
                 result.add(map);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
                 e.printStackTrace();
-            } catch (TimeoutException e) {
-                e.printStackTrace();
             }
         }
-
-        pool.shutdown();
 
         long time2 = System.currentTimeMillis();
 
         System.out.println("cost time:" + (time2 - time1));
+
+        pool.shutdown();
     }
 }
 
