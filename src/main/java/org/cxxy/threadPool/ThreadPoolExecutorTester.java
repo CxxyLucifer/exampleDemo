@@ -2,9 +2,7 @@ package org.cxxy.threadPool;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 
 
@@ -45,6 +43,21 @@ public class ThreadPoolExecutorTester {
             }
         }
 
+
+        for(HashMap<String, Object> futureMap : result) {
+            Iterator entries = futureMap.entrySet().iterator();
+            while (entries.hasNext()) {
+                Map.Entry entry = (Map.Entry) entries.next();
+                if (entry.getKey() != null && entry.getValue() != null) {
+                    String key = (String) entry.getKey();
+                    Object value = (Object) entry.getValue();
+
+                    System.out.println("key:" + key + " ,value:" + value);
+                }
+            }
+        }
+
+
         long time2 = System.currentTimeMillis();
 
         System.out.println("cost time:" + (time2 - time1));
@@ -54,7 +67,7 @@ public class ThreadPoolExecutorTester {
 }
 
 
-class MyTask implements Callable<HashMap<String, Object>> {
+class MyTask implements Callable {
     private int taskNum;
 
     public MyTask(int num) {
