@@ -164,9 +164,9 @@ public final class AESUtil {
         jsonObject.put("mobile", "18551854330");
         jsonObject.put("sid", "m18551854330");
 
-        String pwd = "lwyuuTAuKizSsipBmMgA8bOlW7MMpG4XNcNgN97HlWu8/104wxz3omjrMbCKD59/";
+        String pwd =  AESUtil.encryptStr(jsonObject.toJSONString());
 
-        System.out.println("加密：" + AESUtil.encryptStr(jsonObject.toJSONString()));
+        System.out.println("加密：" + pwd);
 
         String json = AESUtil.decryptStr(pwd);
         System.out.println("解密：" + json);
