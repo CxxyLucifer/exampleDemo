@@ -19,7 +19,7 @@ public class Number {
     }
 
     /**
-     * 求所有真约数之和
+     * 求所有真约数之和(除去本身的约数即真约数)
      *
      * @param number
      * @return

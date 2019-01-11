@@ -1,12 +1,14 @@
 package org.cxxy;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.Range;
 
 import java.text.DecimalFormat;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.text.NumberFormat;
 import java.util.*;
+import static java.util.stream.IntStream.range;
 
 /**
  * Created by LiuHui on 2017/4/14.
@@ -49,7 +51,9 @@ public class test {
 //
 //        System.out.println(Double.doubleToLongBits(a) == Double.doubleToLongBits(b));
 
-        System.out.println(22 << 1);
+//        System.out.println(22 << 1);
+
+        range(1,5).forEach(a-> System.out.println(a));
     }
 
 
