@@ -28,6 +28,12 @@ public class Reduce {
         System.out.println(Stream.of("a", "B", "c", "D", "e", "F").
                 filter(x -> x.compareTo("Z") > 0).
                 reduce("", String::concat));
+
+
+
+
+
+
     }
 
 }

@@ -1,6 +1,7 @@
 package org.cxxy.func.perfectnumber;
 
 import java.util.stream.IntStream;
+
 import static java.util.stream.IntStream.range;
 
 /**
@@ -39,7 +40,11 @@ public class Number {
     }
 
     public static void main(String[] args) {
-        System.out.println(isPerfectNumber(7));
+        range(1, 10001).forEach(a -> {
+            if (isPerfectNumber(a)) {
+                System.out.println(a);
+            }
+        });
     }
 
 }

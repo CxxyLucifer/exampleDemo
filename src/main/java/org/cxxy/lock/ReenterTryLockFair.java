@@ -12,14 +12,18 @@ public class ReenterTryLockFair {
     private static ReentrantLock fairLock = new ReentrantLock(true);
 
     private static Runnable runnable = () -> {
-        while (true){
             try {
                 fairLock.lock();
-                System.out.println(Thread.currentThread().getName() + " 获取了锁");
+                System.out.println(Thread.currentThread().getName() + " =获取了锁");
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             } finally {
                 fairLock.unlock();
+                System.out.println(Thread.currentThread().getName() + " -释放了锁");
             }
-        }
     };
 
 

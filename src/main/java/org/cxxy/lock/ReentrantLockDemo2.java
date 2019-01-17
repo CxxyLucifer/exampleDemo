@@ -16,7 +16,7 @@ public class ReentrantLockDemo2 {
         try {
             if (reentrantLock.tryLock(3, TimeUnit.SECONDS)) {
                 System.out.println(Thread.currentThread().getName() + "获取锁成功了");
-                Thread.sleep(2000);
+                Thread.sleep(4000);
             } else {
                 System.out.println(Thread.currentThread().getName() + "获取锁失败了");
             }
