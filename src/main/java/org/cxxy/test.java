@@ -2,12 +2,18 @@ package org.cxxy;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.Range;
+import org.cxxy.util.UnicodeUtil;
 
+import java.math.BigDecimal;
+import java.net.URLDecoder;
 import java.text.DecimalFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.text.NumberFormat;
 import java.util.*;
+
 import static java.util.stream.IntStream.range;
 
 /**
@@ -15,45 +21,11 @@ import static java.util.stream.IntStream.range;
  */
 public class test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
-//        String str = "jack tom h liuhui xiaoming sea talk boat tomot jackcaj";
-//
-//        StringTokenizer StrUtil = new StringTokenizer(str," ");
-//
-//        while (StrUtil.hasMoreTokens()){
-//            System.out.println(StrUtil.nextToken());
-//        }
+        BigDecimal a = BigDecimal.ZERO;
 
-
-//        Stream.of("one","two","three","four").filter(e-> e.length() > 3).peek(e -> System.out.println("filtered value:" + e))
-//                .map(String::toUpperCase).peek(e -> System.out.println("maped value:" + e)).collect(Collectors.toList());
-
-//        Double a = Double.valueOf(50) / Double.valueOf(2);
-//
-//        DecimalFormat df = new DecimalFormat("#.##");
-//
-//        System.out.println(df.format(a));
-
-
-//        String pwd = RandomStringUtils.randomNumeric(6);
-//        System.out.println(pwd);
-
-//        DecimalFormat df = new DecimalFormat("0.00");
-//        Double a = 1234.10;
-//        System.out.println(convertDouble2Int(a));
-
-//        int[] array = {1, 3, 6, 2};//定义静态数组
-//
-//        double a = 1.6;
-//        Double b = 1.6;
-//        String c = "1.6";
-//
-//        System.out.println(Double.doubleToLongBits(a) == Double.doubleToLongBits(b));
-
-//        System.out.println(22 << 1);
-
-        range(1,5).forEach(a-> System.out.println(a));
+        System.out.println(a.setScale(0));
     }
 
 

@@ -12,60 +12,42 @@ public class DateUtil {
     private static final String DEFAULT_DATE_FORMATE = "yyyy-MM-dd HH:mm:ss";
 
 
-    public static boolean isNull(Object o)
-    {
-        if (o == null)
-        {
+    public static boolean isNull(Object o) {
+        if (o == null) {
             return true;
         }
 
-        if (o instanceof String)
-        {
+        if (o instanceof String) {
             String s = (String) o;
-            if (s.trim().equals(""))
-            {
+            if (s.trim().equals("")) {
                 return true;
             }
-            if (s.trim().equals("null"))
-            {
+            if (s.trim().equals("null")) {
                 return true;
             }
             return false;
-        }
-        else if (o instanceof Object[])
-        {
+        } else if (o instanceof Object[]) {
             return ((Object[]) o).length == 0;
-        }
-        else if (o instanceof Collection<?>)
-        {
+        } else if (o instanceof Collection<?>) {
             return ((Collection<?>) o).isEmpty();
-        }
-        else if (o instanceof Map<?, ?>)
-        {
+        } else if (o instanceof Map<?, ?>) {
             return ((Map<?, ?>) o).isEmpty();
         }
         return false;
     }
 
 
-
-
     /**
      * 返回当前日期字符串
      *
-     * @param dateFormate
-     *            日期格式
+     * @param dateFormate 日期格式
      * @return
      */
-    public static String getCurrentDateString(String dateFormate)
-    {
+    public static String getCurrentDateString(String dateFormate) {
         String formate = "";
-        if (isNull(dateFormate))
-        {
+        if (isNull(dateFormate)) {
             formate = DEFAULT_DATE_FORMATE;
-        }
-        else
-        {
+        } else {
             formate = dateFormate;
         }
         Calendar cal = Calendar.getInstance(TimeZone.getDefault());
@@ -77,21 +59,16 @@ public class DateUtil {
     /**
      * 获取上月份
      *
-     * @param dateString
-     *            (格式如:2015-02)
+     * @param dateString (格式如:2015-02)
      * @return
      * @throws Exception
      */
-    public static String getPreMouth(String dateString)
-    {
+    public static String getPreMouth(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         Date date = new Date();
-        try
-        {
+        try {
             date = sdf.parse(dateString);
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -105,20 +82,15 @@ public class DateUtil {
     /**
      * 获取去年今月
      *
-     * @param dateString
-     *            (格式:yyyy-MM)
+     * @param dateString (格式:yyyy-MM)
      * @return
      */
-    public static String getPreYearMouth(String dateString)
-    {
+    public static String getPreYearMouth(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
         Date date = new Date();
-        try
-        {
+        try {
             date = sdf.parse(dateString);
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -132,20 +104,15 @@ public class DateUtil {
     /**
      * 获取上个月的今天
      *
-     * @param dateString
-     *            (格式:yyyy-MM-dd)
+     * @param dateString (格式:yyyy-MM-dd)
      * @return
      */
-    public static String getPreMouthDay(String dateString)
-    {
+    public static String getPreMouthDay(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
-        try
-        {
+        try {
             date = sdf.parse(dateString);
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -159,20 +126,15 @@ public class DateUtil {
     /**
      * 获取去年今日
      *
-     * @param dateString
-     *            (格式:yyyy-MM-dd)
+     * @param dateString (格式:yyyy-MM-dd)
      * @return
      */
-    public static String getPreYearDay(String dateString)
-    {
+    public static String getPreYearDay(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
-        try
-        {
+        try {
             date = sdf.parse(dateString);
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -189,16 +151,12 @@ public class DateUtil {
      * @param dateString
      * @return
      */
-    public static String gerPreDay(String dateString)
-    {
+    public static String gerPreDay(String dateString) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date();
-        try
-        {
+        try {
             date = sdf.parse(dateString);
-        }
-        catch (ParseException e)
-        {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         GregorianCalendar gc = new GregorianCalendar();
@@ -212,25 +170,18 @@ public class DateUtil {
     /**
      * 返回日期字符串
      *
-     * @param date
-     *            日期
-     * @param dateFormate
-     *            日期格式
+     * @param date        日期
+     * @param dateFormate 日期格式
      * @return
      */
-    public static String getDateString(Date date, String dateFormate)
-    {
-        if (date == null)
-        {
+    public static String getDateString(Date date, String dateFormate) {
+        if (date == null) {
             return null;
         }
         String formate = "";
-        if (isNull(dateFormate))
-        {
+        if (isNull(dateFormate)) {
             formate = DEFAULT_DATE_FORMATE;
-        }
-        else
-        {
+        } else {
             formate = dateFormate;
         }
         SimpleDateFormat sdf = new SimpleDateFormat(formate);
@@ -240,15 +191,15 @@ public class DateUtil {
 
     /**
      * 获取当前季度的第一天的日期，格式：yyyyMMdd
+     *
      * @return
      */
-    public static String getSeasonFirstDay(){
+    public static String getSeasonFirstDay() {
 
         Date[] season = getSeasonDate(new Date());
 
-        return getDateString(season[0],"yyyyMMdd");
+        return getDateString(season[0], "yyyyMMdd");
     }
-
 
 
     /**
@@ -297,7 +248,6 @@ public class DateUtil {
     }
 
     /**
-     *
      * 1 第一季度 2 第二季度 3 第三季度 4 第四季度
      *
      * @param date
@@ -338,7 +288,6 @@ public class DateUtil {
 
 
     /**
-     *
      * 1 上半年 2 下半年
      *
      * @param date
@@ -375,7 +324,27 @@ public class DateUtil {
 
 
     public static void main(String[] args) {
-        System.out.println(getHalfYear(new Date()));
+        System.out.println(getNextSixMonthDay());
+    }
+
+
+    /**
+     * @return
+     */
+    public static String getNextSixMonthDay() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        try {
+            date = sdf.parse(getCurrentDateString("yyyy-MM-dd"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        GregorianCalendar gc = new GregorianCalendar();
+
+        gc.setTime(date);
+        gc.add(Calendar.MONTH, +6);
+
+        return DateUtil.getDateString(gc.getTime(), "yyyy-MM-dd");
     }
 
 }

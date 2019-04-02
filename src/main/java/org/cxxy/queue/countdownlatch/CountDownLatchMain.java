@@ -34,7 +34,7 @@ public class CountDownLatchMain {
 		public void run() {
 			System.out.println("Worker " + workerName + " do work begin at " + sdf.format(new Date()));
 			doWork();// 工作了
-			System.out.println("Worker " + workerName + " do work complete at " + sdf.format(new Date()));
+			System.out.println("Worker " + workerName + " do work complete at " + sdf.format(new Date()) + " spent time:" + workTime + "ms");
 			latch.countDown();// 工人完成工作，计数器减一
 
 		}
