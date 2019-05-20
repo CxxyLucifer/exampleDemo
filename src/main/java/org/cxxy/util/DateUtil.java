@@ -1,5 +1,6 @@
 package org.cxxy.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -323,11 +324,6 @@ public class DateUtil {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(getNextSixMonthDay());
-    }
-
-
     /**
      * @return
      */
@@ -347,6 +343,47 @@ public class DateUtil {
         return DateUtil.getDateString(gc.getTime(), "yyyy-MM-dd");
     }
 
+
+    /**
+     * 时间比较大小
+     *
+     * @param DATE1
+     *            格式 "yyyy-MM-dd HH:mm:ss"
+     * @param DATE2
+     *            格式 "yyyy-MM-dd HH:mm:ss"
+     * @return DATE1 大于 DATE2 返回 1, DATE1 小于 DATE2 返回 -1,等于 返回 0
+     */
+    public static int compare(String DATE1, String DATE2)
+    {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try
+        {
+            Date dt1 = df.parse(DATE1);
+            Date dt2 = df.parse(DATE2);
+            if (dt1.getTime() > dt2.getTime())
+            {
+                return 1;
+            }
+            else if (dt1.getTime() < dt2.getTime())
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(getNextSixMonthDay());
+    }
 }
 
 
