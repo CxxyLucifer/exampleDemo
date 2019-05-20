@@ -347,34 +347,24 @@ public class DateUtil {
     /**
      * 时间比较大小
      *
-     * @param DATE1
-     *            格式 "yyyy-MM-dd HH:mm:ss"
-     * @param DATE2
-     *            格式 "yyyy-MM-dd HH:mm:ss"
+     * @param DATE1 格式 "yyyy-MM-dd HH:mm:ss"
+     * @param DATE2 格式 "yyyy-MM-dd HH:mm:ss"
+     *
      * @return DATE1 大于 DATE2 返回 1, DATE1 小于 DATE2 返回 -1,等于 返回 0
      */
-    public static int compare(String DATE1, String DATE2)
-    {
+    public static int compare(String DATE1, String DATE2) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try
-        {
+        try {
             Date dt1 = df.parse(DATE1);
             Date dt2 = df.parse(DATE2);
-            if (dt1.getTime() > dt2.getTime())
-            {
+            if (dt1.getTime() > dt2.getTime()) {
                 return 1;
-            }
-            else if (dt1.getTime() < dt2.getTime())
-            {
+            } else if (dt1.getTime() < dt2.getTime()) {
                 return -1;
-            }
-            else
-            {
+            } else {
                 return 0;
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;

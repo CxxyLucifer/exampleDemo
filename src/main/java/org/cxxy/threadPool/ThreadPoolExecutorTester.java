@@ -2,6 +2,7 @@ package org.cxxy.threadPool;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -10,11 +11,15 @@ public class ThreadPoolExecutorTester {
 
     final static String THREAD_NAME = "threadPoolExecutorTester";
 
-    static ThreadPoolExecutor pool = new ThreadPoolExecutor(5, 10, 30, TimeUnit.MINUTES,
-            new LinkedBlockingDeque<Runnable>(),
-            new ThreadFactoryBuilder().setNameFormat(THREAD_NAME).build(),
-            new ThreadPoolExecutor.CallerRunsPolicy());
+    static ThreadPoolExecutor pool;
 
+    @PostConstruct
+    public void init(){
+        pool = new ThreadPoolExecutor(5, 10, 30, TimeUnit.MINUTES,
+                new LinkedBlockingDeque<Runnable>(),
+                new ThreadFactoryBuilder().setNameFormat(THREAD_NAME).build(),
+                new ThreadPoolExecutor.CallerRunsPolicy());
+    }
 
     public static void main(String[] args) {
 
