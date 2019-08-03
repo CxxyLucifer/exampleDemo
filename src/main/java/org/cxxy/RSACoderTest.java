@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.cxxy.util.RSACoder;
 import org.junit.Before;
 import org.junit.Test;
-
+import org.apache.commons.codec.binary.Base64;
 import java.util.Map;
 
 /**
@@ -31,13 +31,17 @@ public class RSACoderTest {
     @Test
     public void test() throws Exception {
 
-        System.err.println("公钥加密——私钥解密");
+        System.err.println("公钥加密——>私钥解密");
 
-        String inputStr = "abc";
+        String inputStr = "我爱我的祖国，我爱我的家乡";
 
         byte[] data = inputStr.getBytes();
 
         byte[] encodedData = RSACoder.encryptByPublicKey(data, publicKey);
+
+        String encodeStr = Base64.encodeBase64String(encodedData);
+
+        System.out.println("公钥加密后密文:" + encodeStr);
 
         byte[] decodedData = RSACoder.decryptByPrivateKey(encodedData, privateKey);
 
@@ -51,7 +55,7 @@ public class RSACoderTest {
 
     @Test
     public void testSign() throws Exception {
-        System.err.println("私钥加密——公钥解密");
+        System.err.println("私钥加密——>公钥解密");
 
         String inputStr = "sign";
 

@@ -204,7 +204,7 @@ public abstract class RSACoder extends Coder {
      */
     public static String getPrivateKey(Map<String, Object> keyMap)throws Exception {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
-
+        System.err.println("privateKey:" + key.getEncoded());
         return encryptBASE64(key.getEncoded());
     }
 
@@ -217,7 +217,7 @@ public abstract class RSACoder extends Coder {
      */
     public static String getPublicKey(Map<String, Object> keyMap)throws Exception {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
-
+        System.err.println("publicKey:" + key.getEncoded());
         return encryptBASE64(key.getEncoded());
     }
 
