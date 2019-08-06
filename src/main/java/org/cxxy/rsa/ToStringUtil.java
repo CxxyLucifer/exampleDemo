@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.util.Calendar;
 
-public class ToStringUtils {
+public class ToStringUtil {
 
     public static String getDateFilePrefix() {
 

@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import org.apache.commons.codec.binary.Base64;
 
 
-public class Base64Utils {
+public class Base64Util {
 
 
     /** *//**
